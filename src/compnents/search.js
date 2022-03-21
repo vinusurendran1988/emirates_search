@@ -208,15 +208,15 @@ export default function Search() {
         </Box>
         <div class="flight_details">
           <Stack spacing={1}>
-            {isSearching == true && <LinearProgress color="inherit" />}
+            {isSearching === true && <LinearProgress color="inherit" />}
             { flights.length > 0 && flights.map((flight) => 
                 <Item style={{"margin": "9px 3px"}}>
                   <FlightInfo flight={flight}></FlightInfo>
                 </Item>
               )
             }
-            {(isSearched == true && flights.length == 0) && <Alert severity="warning">No flights on the selected route!</Alert>}
-            {isSearched == false && <Alert severity="info">Please try a new search.</Alert>}
+            {(isSearched === true && flights.length === 0) && <Alert severity="warning">No flights on the selected route!</Alert>}
+            {isSearched === false && <Alert severity="info">Please try a new search.</Alert>}
           </Stack>
         </div>
         <Copyright sx={{ mt: 5 }} />
