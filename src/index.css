@@ -1,13 +1,196 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	color: black;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+    font-weight: normal;
+    color: black;
+    line-height: normal;
 }
+h3 {
+    font-weight: normal;
+    color: black;
+    line-height: normal;
+}
+.flight-tail {
+    height: 20px;
+    width: 45px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.flight_details {
+    padding: 5px;
+    background: #F6F6F6;
+    margin-top: 10px;
+}
+
+.item_without_border {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+/* RIBBON */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap');
+
+*, *::before, *::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.container{
+  background: #f3f3f3;
+  align-items:center;
+}
+
+.blue_card{
+  background: white;
+  box-shadow: 4px 4px 15px rgba(#000, 0.15);
+  position : relative;
+  color: #434343;
+}
+
+.blue_card .card__container{
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: relative;
+  padding: 25px 20px;
+}
+
+.blue_card .card__header{
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.blue_card .card__body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.blue_card::before{
+  position: absolute;
+  top:2rem;
+  right:-0.5rem;
+  content: '';
+  background: #0000FF;
+  height: 28px;
+  width: 28px;
+  transform : rotate(45deg);
+}
+
+.blue_card::after{
+  position: absolute;
+  content: attr(data-label);
+  top: 11px;
+  right: -14px;
+  padding: 0.5rem;
+  width: 10rem;
+  background: #0000FF;
+  color: white;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+}
+
+.green_card{
+    background: white;
+    box-shadow: 4px 4px 15px rgba(#000, 0.15);
+    position : relative;
+    color: #434343;
+  }
+  
+  .green_card .card__container{
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: relative;
+    padding: 25px 20px;
+  }
+  
+  .green_card .card__header{
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .green_card .card__body{
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .green_card::before{
+    position: absolute;
+    top:2rem;
+    right:-0.5rem;
+    content: '';
+    background: #15700E;
+    height: 28px;
+    width: 28px;
+    transform : rotate(45deg);
+  }
+  
+  .green_card::after{
+    position: absolute;
+    content: attr(data-label);
+    top: 11px;
+    right: -14px;
+    padding: 0.5rem;
+    width: 10rem;
+    background: #15700E;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+  }
+
+  .amber_card{
+    background: white;
+    box-shadow: 4px 4px 15px rgba(#000, 0.15);
+    position : relative;
+    color: #434343;
+  }
+  
+  .amber_card .card__container{
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: relative;
+    padding: 25px 20px;
+  }
+  
+  .amber_card .card__header{
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .amber_card .card__body{
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .amber_card::before{
+    position: absolute;
+    top:2rem;
+    right:-0.5rem;
+    content: '';
+    background: #FFBF00;
+    height: 28px;
+    width: 28px;
+    transform : rotate(45deg);
+  }
+  
+  .amber_card::after{
+    position: absolute;
+    content: attr(data-label);
+    top: 11px;
+    right: -14px;
+    padding: 0.5rem;
+    width: 10rem;
+    background: #FFBF00;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+  }
+/*END OF RIBBON */
