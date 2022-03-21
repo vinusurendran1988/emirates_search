@@ -4,6 +4,9 @@ import { styled } from '@mui/material/styles';
 import MuiGrid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 
+/**
+ * Custom styled Grid component
+ */
 const Grid = styled(MuiGrid)(({ theme }) => ({
   width: '100%',
   ...theme.typography.body2,
@@ -12,6 +15,9 @@ const Grid = styled(MuiGrid)(({ theme }) => ({
   },
 }));
 
+/**
+ * Custom styled Item component
+ */
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -22,8 +28,50 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: '0px',
 }));
 
+/**
+ * FlightInfo component
+ * Handle the view of the whole flight row
+ * includig flight status ribbon
+ */
+const FlightInfo = (props) => {
+    const flight = props.flight;
+    let ribbonClass = "amber_card";
+    if (flight.flightStatus === 'Arrived') {
+        ribbonClass = "green_card";
+    } else if (flight.flightStatus === 'Not yet arrived') {
+        ribbonClass = "blue_card";
+    }
+    return (
+        <>
+            <div class="container">
+                <div class={ribbonClass} data-label={flight.flightStatus}>
+                    <div class="card__container">
+                    <Grid container>
+                        <Grid item xs={8}>
+                            <AirportDetails {...props}></AirportDetails>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem></Divider>
+                        <Grid item xs={3}>
+                        <div style={{"transform": "translateY(-35%)", "position": "relative","top": "50%"}}>
+                            <Stack direction="row" justifyContent="center" alignItems="center" spacing={0} >
+                                <Item><img class="flight-tail" src="images/flight-tail.svg" alt="img" /></Item>
+                                <Item><h3>{flight.flight}</h3></Item>
+                            </Stack>
+                        </div>
+                        </Grid>
+                    </Grid>
+                    </div>
+                </div>
+            </div>
+
+        </>
+    )
+}
+
+/**
+ * Handles the view of Origin and departure details
+ */
 const AirportDetails = (props) => {
-    console.log(">>>>>>"+JSON.stringify(props));
     const flight = props.flight;
     return (
         <Stack style={{"width": "90%"}}>
@@ -66,41 +114,6 @@ const AirportDetails = (props) => {
             </Item>
         </Stack>
     );
-}
-
-const FlightInfo = (props) => {
-    const flight = props.flight;
-    let ribbonClass = "amber_card";
-    if (flight.flightStatus === 'Arrived') {
-        ribbonClass = "green_card";
-    } else if (flight.flightStatus === 'Not yet arrived') {
-        ribbonClass = "blue_card";
-    }
-    return (
-        <>
-            <div class="container">
-                <div class={ribbonClass} data-label={flight.flightStatus}>
-                    <div class="card__container">
-                    <Grid container>
-                        <Grid item xs={8}>
-                            <AirportDetails {...props}></AirportDetails>
-                        </Grid>
-                        <Divider orientation="vertical" flexItem></Divider>
-                        <Grid item xs={3}>
-                        <div style={{"transform": "translateY(-35%)", "position": "relative","top": "50%"}}>
-                            <Stack direction="row" justifyContent="center" alignItems="center" spacing={0} >
-                                <Item><img class="flight-tail" src="images/flight-tail.svg" alt="img" /></Item>
-                                <Item><h3>{flight.flight}</h3></Item>
-                            </Stack>
-                        </div>
-                        </Grid>
-                    </Grid>
-                    </div>
-                </div>
-            </div>
-
-        </>
-    )
 }
 
 export default FlightInfo;

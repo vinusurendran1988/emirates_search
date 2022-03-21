@@ -20,6 +20,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FlightInfo from "./flightInfo";
 import {getAirports, getFlights} from "../utils/index"
 
+/**
+ * Footer Component
+ */
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -30,6 +33,10 @@ function Copyright(props) {
   );
 }
 
+/**
+ * Base site theme defining
+ * TODO: advanced theme, typography definintions
+ */
 const theme = createTheme({
   palette: {
     primary: {
@@ -41,6 +48,9 @@ const theme = createTheme({
   },
 });
 
+/**
+ * Styled MUI Item component
+ */
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -49,6 +59,9 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+/**
+ * Styled MUI Button component
+ */
 const ViewDetailsButton = styled(Button)(({ theme }) => ({
   background: '#C60C30',
   textTransform: 'none',
@@ -58,8 +71,15 @@ const ViewDetailsButton = styled(Button)(({ theme }) => ({
   }
 }));
 
+/**
+ * Defines the main search component
+ * @returns Search component
+ */
 export default function Search() {
 
+  /**
+   * Returns date format as YYYY-MM-DD
+   */
   const getFormatedDate = (param) => {
     let input = new Date(param);
     let month = input.getMonth()+1;
@@ -73,6 +93,7 @@ export default function Search() {
     return input.getFullYear()+'-'+month+'-'+date;
   }
 
+  // Defines state variables and initializing.
   const [airports, setAirports] = React.useState([]);
   const [flights, setFlights] = React.useState([]);
   const [origin, setOrigin] = React.useState('');
@@ -81,13 +102,17 @@ export default function Search() {
   const [isSearched, setIsSearched] = React.useState(false);
   const [isSearching, setIsSearching] = React.useState(false);
 
-
   React.useEffect(() => {
     getAirports()
       .then((data) => {setAirports(data)})
       .catch(error => error);
   }, [])
 
+  /**
+   * "View Details" button handler
+   * Invoke the flight status API and 
+   * assign the flight details response in state
+   */
   const searchFlights = (event) => {
     event.preventDefault();
     setIsSearching(true);
@@ -101,6 +126,10 @@ export default function Search() {
       .catch(error => {setIsSearched(true); setIsSearching(false);});
   };
 
+  /**
+   * Function used to format the date from picker.
+   * Invoked while selecting a date from picker.
+   */
   const handleDateChange = (event) => {
     let formattedDate = getFormatedDate(event)
     setDepartureDate(formattedDate);
@@ -123,6 +152,7 @@ export default function Search() {
                   renderInput={(params) => 
                   <TextField 
                     {...params}
+                    variant="filled"
                     InputProps={{
                       ...params.InputProps,
                       startAdornment: (
@@ -143,6 +173,7 @@ export default function Search() {
                   renderInput={(params) => 
                   <TextField 
                   {...params} 
+                  variant="filled"
                   InputProps={{
                     ...params.InputProps,
                     startAdornment: (
@@ -159,7 +190,7 @@ export default function Search() {
                     inputFormat="dd MMM yyyy"
                     value={departureDate}
                     onChange={handleDateChange}
-                    renderInput={(params) => <TextField style={{width: "100%"}} {...params} />}
+                    renderInput={(params) => <TextField variant="filled" style={{width: "100%"}} {...params} />}
                   />
                 </LocalizationProvider>
                 </Grid>
