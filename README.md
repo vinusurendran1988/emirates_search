@@ -11,6 +11,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Responsiveness, Validations and Fallbacks are handled.
 - Theming also not handled perfectly because it requires more time. There are inline CSS written in some places.
 
+## Responsive Screens
+![Desktop View](https://raw.githubusercontent.com/vinusurendran1988/emirates_search/68d31c1fb44c95e1e7dbcb4c87bfcfffce0da719/public/images/screen1.PNG)
+
+![Tablet View](https://raw.githubusercontent.com/vinusurendran1988/emirates_search/68d31c1fb44c95e1e7dbcb4c87bfcfffce0da719/public/images/screen2.PNG)
+
+![Mobile View](https://raw.githubusercontent.com/vinusurendran1988/emirates_search/master/public/images/screen3.PNG)
 
 ## How to run the app
 In the project directory, you can run:
